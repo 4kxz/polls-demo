@@ -1,0 +1,59 @@
+<!doctype html>
+<head>
+    <title></title>
+    <style type="text/css">{% include 'style.css' %}</style>
+</head>
+<body>
+    <header><h1><a href="/">Polls</a></h1></header>
+    <div class="wrapper">
+        <h2><a href="/{{ index }}">{{ poll.title }}</a></h2>
+        <table>
+            <tr>
+                <th></th>
+                {% for choice in poll.choices %}
+                <th class="choice">{{ choice }}</th>
+                {% endfor %}
+                <th></th>
+            </tr>
+            {% for response in poll.responses|reverse %}
+            <tr>
+                <td>{{ response.name }}</td>
+                {% for choice in poll.choices %}
+                <td class="choice"><input type="checkbox" {% if response.votes[choice] %} checked {% endif %} disabled /></td>
+                {% endfor %}
+                <td>{{ response.comment }}</td>
+            </tr>
+            {% endfor %}
+            {% if poll.responses %}
+            <tr class="totals">
+                <td>Vote count</td>
+                {% for choice in poll.choices %}
+                <td class="choice">{{ counts[choice] }}</td>
+                {% endfor %}
+                <td></td>
+            </tr>
+            {% endif %}
+        </table>
+    </div>
+    <div class="wrapper">
+        <h3>Participate</h3>
+        <form method="POST">
+            <table>
+                <tr>
+                    <th>Name</th>
+                    {% for choice in poll.choices %}
+                    <th class="choice">{{ choice }}</th>
+                    {% endfor %}
+                    <th>Comment</th>
+                </tr>
+                <tr>
+                    <td><input name="name" type="text" placeholder="John Doe" required/></td>
+                    {% for choice in poll.choices %}
+                    <td class="choice"><input name="{{ choice }}"type="checkbox" /></td>
+                    {% endfor %}
+                    <td><input name="comment" type="text" placeholder="Make a poll they said!" /> <button>Vote</button></td>
+                </tr>
+            </table>
+        </form>
+    </div>
+</body>

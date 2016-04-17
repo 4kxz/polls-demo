@@ -1,0 +1,103 @@
+body {
+    font-family: sans-serif;
+    background-color: #EEE;
+    margin: 0;
+    font-size: 16px;
+}
+body:before {
+    height: 160px;
+    display: block;
+    background-color: #8bc34a;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    z-index: -1;
+    content: "";
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+div.wrapper {
+    max-width: 55em;
+    background-color: #FFF;
+    padding: 20px 0;
+    margin: 30px auto;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+header {
+    max-width: 55em;
+    margin: 30px auto;
+    text-align: center;
+}
+table {
+    border-collapse: collapse;
+    width: 100%;
+}
+th, td {
+    padding: 10px 20px;
+    text-align: left;
+}
+td {
+    border-top: 1px solid #EEE;
+}
+tr:hover {
+    background-color: #F8F8F8;
+}
+table *.choice {
+    text-align: center;
+}
+tr.totals {
+    font-weight: bold;
+}
+form > div:last-child {
+    text-align: right;
+}
+form > div {
+    padding: 0 20px;
+    margin: 10px 0 0;
+}
+input[name="name"] {
+    width: 8em;
+}
+input[name="title"], textarea[name="choices"] {
+    width: calc(100% - 2px);
+}
+input[name="comment"] {
+    width: calc(100% - 8em);
+}
+input, textarea {
+    padding: 8px 1px 4px;
+    border: 0;
+    border-bottom: 2px solid #ff5722;
+    background-color: #FFF;
+}
+label {
+    font-weight: bold;
+    display: block;
+    margin-top: 30px;
+}
+button {
+    border: 0;
+    color: #FFF;
+    background-color: #ff5722;
+    padding: 6px 9px;
+    border-radius: 3px;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.25);
+}
+button:hover {
+    background-color: #ef4712;
+    cursor: pointer;
+}
+h1 a {
+    color: #FFF;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+h1, h2, h3 {
+    margin-top: 5px;
+    padding: 0 20px;
+}
+a {
+    text-decoration: none;
+    color: #689f38;
+}
+a:hover {
+    text-decoration: underline;;
+}

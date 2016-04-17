@@ -1,0 +1,33 @@
+<!doctype html>
+<head>
+    <title></title>
+    <style type="text/css">{% include 'normalize.css' %}</style>
+    <style type="text/css">{% include 'style.css' %}</style>
+</head>
+<body>
+    <header><h1><a href="/">Polls</a></h1></header>
+    <div class="wrapper">
+        <table>
+            <tr>
+                <th>Title</th>
+                <th>Created</th>
+            </tr>
+            {% for poll in polls %}
+            <tr>
+                <td><a href="{{ loop.index0 }}">{{ poll.title }}</a></td>
+                <td>{{ poll.created.strftime('%Y-%m-%d %H:%M') }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+    </div>
+    <div class="wrapper">
+        <h3>New poll</h3>
+        <form method="POST">
+            <div><label>Title</label></div>
+            <div><input name="title" type="text" placeholder="The best poll in the world!" size="50" maxlength="100" required /></div>
+            <div><label>Choices, one per line</label></div>
+            <div><textarea name="choices" cols="30" rows="4" required></textarea></div>
+            <div><button>Create</button></div>
+        </form>
+    </div>
+</body>
